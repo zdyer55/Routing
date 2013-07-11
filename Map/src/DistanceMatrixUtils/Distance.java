@@ -1,3 +1,4 @@
+package DistanceMatrixUtils;
 
 public class Distance {
 	String text;

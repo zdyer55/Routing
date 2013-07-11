@@ -26,20 +26,45 @@ public class TSP {
 	{
 		int key=0;
 		int num=0;
-		int firstfound = -1;
-		for(int i=0; i<numVertexes; i++)
+		int firstfound =-1;
+		for(int i=1; i<numVertexes; i++)
 		{
 			if(vertexUsed[i])
 				key+=Math.pow(2,i);
 			else
 			{
-				num++;
 				firstfound = i;
+				num++;
 			}
 		}
 		if(num==1)
-			return new ListNode(0,firstfound,null); //Base case, there is one vertex left, build it from here
-		
+		{
+			ListNode returnToStart = new ListNode(0,0,null);
+			return new ListNode(distances[firstfound][0],firstfound,returnToStart); //Base case, there is one vertex left, build it from here
+		}
+		if(num==numVertexes-1)
+		{
+			ListNode[] topLevelList = new ListNode[numVertexes-1];
+			for(int i=1; i<numVertexes; i++)
+			{
+
+					boolean[] newUsed = vertexUsed.clone();
+					
+					newUsed[i] = true;
+					newUsed[0] = true;
+					
+					ListNode tempNode= solveOptimal(newUsed,totalweight);
+					tempNode = new ListNode(tempNode.weight+distances[tempNode.num][i], i, tempNode);
+					topLevelList[i-1] = new ListNode(tempNode.weight+distances[i][0], i, tempNode);
+			}
+			ListNode best = topLevelList[0];
+			for(int i=1; i<numVertexes-1; i++)
+			{
+				if(topLevelList[i].weight<best.weight)
+					best = topLevelList[i];
+			}
+			return best;
+		}
 		if(totalweight[key]!= null)
 		{
 			return totalweight[key];
@@ -48,7 +73,7 @@ public class TSP {
 		ListNode best = null;
 		ListNode temp = null;
 		int bestnum=-1;
-		for(int i=0; i<numVertexes; i++) // loop for every index
+		for(int i=1; i<numVertexes; i++) // loop for every index
 		{
 			if(!vertexUsed[i]) //if current node is not used
 			{

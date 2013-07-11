@@ -1,3 +1,4 @@
+package DistanceMatrixUtils;
 import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;
