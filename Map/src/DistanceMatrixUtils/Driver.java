@@ -20,11 +20,24 @@ public class Driver {
 		ArrayList<String> destinations = new ArrayList<String>();
 		origins.add("Vancouver BC");
 		origins.add("Seattle");
+		origins.add("San Francisco");
+		origins.add("Victoria BC");
+		destinations.add("Vancouver BC");
+		destinations.add("Seattle");
 		destinations.add("San Francisco");
 		destinations.add("Victoria BC");
 		DistanceMatrixGetter g = new DistanceMatrixGetter();
 		DistanceMatrix dmatrix = g.getDistanceMatrix(origins, destinations);
-		System.out.println(dmatrix);
+		SplitArrayMatrix sam = new SplitArrayMatrix(dmatrix);
+		for(int i=0; i<sam.getDistances().length; i++)
+		{
+			for(int j=0; j<sam.getDistances().length; j++)
+			{
+				System.out.print((sam.getDistances())[i][j] + " ");
+			}
+			System.out.println();	
+		}
+			
 	}
 
 }
