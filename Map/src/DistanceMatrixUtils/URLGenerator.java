@@ -50,7 +50,7 @@ public class URLGenerator {
 		this.m = m;
 	}
 
-	public String getURL()
+	public String getURLString()
 	{
 		String base = "http://maps.googleapis.com/maps/api/distancematrix/json?";
 		base += addOrigins();
