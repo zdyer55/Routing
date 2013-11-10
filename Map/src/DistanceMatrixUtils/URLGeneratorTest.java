@@ -35,7 +35,7 @@ public class URLGeneratorTest
 		assertEquals("http://maps.googleapis.com/maps/api/" +
 				"distancematrix/json?origins=Vancouver+BC|Seattle&" +
 				"destinations=San+Francisco|Victoria+BC&mode=bicy" +
-				"cling&sensor=false", ugen.getURL());
+				"cling&sensor=false", ugen.getURLString());
 	}
 
 	@Test

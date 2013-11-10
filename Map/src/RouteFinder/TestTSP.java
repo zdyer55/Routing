@@ -6,6 +6,10 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import DistanceMatrixUtils.DistanceMatrix;
+import DistanceMatrixUtils.DistanceMatrixGetter;
+import DistanceMatrixUtils.SplitArrayMatrix;
+import DistanceMatrixUtils.TMode;
 import DistanceMatrixUtils.URLGenerator;
 
 public class TestTSP {
@@ -38,8 +42,16 @@ public class TestTSP {
 		origins.add("Pittsburgh, PA");
 		origins.add("Dallas, TX");
 		origins.add("Miami, Fl");
-		URLGenerator urlGenerator;
-		
+		DistanceMatrixGetter dmGetter = new DistanceMatrixGetter();
+		DistanceMatrix dm = dmGetter.getDistanceMatrix(origins, origins);
+		SplitArrayMatrix sam = new SplitArrayMatrix(dm);
+		TSP map = new TSP(sam.getDistances());
+		ListNode n = map.solve();
+		while(n!=null)
+		{
+			System.out.println(origins.get(n.num));
+			n=n.next;
+		}
 	}
 	
 

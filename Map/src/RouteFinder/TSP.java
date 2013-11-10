@@ -55,7 +55,7 @@ public class TSP {
 					
 					ListNode tempNode= solveOptimal(newUsed,totalweight);
 					tempNode = new ListNode(tempNode.weight+distances[tempNode.num][i], i, tempNode);
-					topLevelList[i-1] = new ListNode(tempNode.weight+distances[i][0], i, tempNode);
+					topLevelList[i-1] = new ListNode(tempNode.weight+distances[i][0], 0, tempNode);
 			}
 			ListNode best = topLevelList[0];
 			for(int i=1; i<numVertexes-1; i++)

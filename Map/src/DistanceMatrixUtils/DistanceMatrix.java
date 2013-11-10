@@ -3,7 +3,7 @@ import java.util.List;
 
 
 
-class DistanceMatrix {
+public class DistanceMatrix {
 
 	public String[] destination_addresses;
 	public String[] origin_addresses;

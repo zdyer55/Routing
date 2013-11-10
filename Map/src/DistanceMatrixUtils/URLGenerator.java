@@ -1,16 +1,17 @@
 package DistanceMatrixUtils;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class URLGenerator {
 
-	ArrayList<String> origins;
-	ArrayList<String> destinations;
+	List<String> origins;
+	List<String> destinations;
 	boolean sensor;
 	TMode m;
 	
-	public URLGenerator(ArrayList<String> origins,
-			ArrayList<String> destinations, boolean sensor, TMode m) {
+	public URLGenerator(List<String> origins,
+			List<String> destinations, boolean sensor, TMode m) {
 		super();
 		this.origins = origins;
 		this.destinations = destinations;
@@ -18,7 +19,7 @@ public class URLGenerator {
 		this.m = m;
 	}
 
-	public ArrayList<String> getOrigins() {
+	public List<String> getOrigins() {
 		return origins;
 	}
 
@@ -26,7 +27,7 @@ public class URLGenerator {
 		this.origins = origins;
 	}
 
-	public ArrayList<String> getDestinations() {
+	public List<String> getDestinations() {
 		return destinations;
 	}
 
