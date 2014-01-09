@@ -4,13 +4,13 @@ import java.io.FileReader;
 import com.google.gson.*;
 public class JsonParser {
 	
-	public static DistanceMatrix parseJsonFromFile(String filename) throws JsonSyntaxException, JsonIOException, FileNotFoundException
+	public DistanceMatrix parseJsonFromFile(String filename) throws JsonSyntaxException, JsonIOException, FileNotFoundException
 	{
 		Gson gson = new Gson();
 		DistanceMatrix mat = gson.fromJson(new FileReader(filename), DistanceMatrix.class);
 		return mat;
 	}
-	public static DistanceMatrix parseJsonFromString(String json)
+	public DistanceMatrix parseJsonFromString(String json)
 	{
 		Gson gson = new Gson();
 		DistanceMatrix mat = gson.fromJson(json, DistanceMatrix.class);

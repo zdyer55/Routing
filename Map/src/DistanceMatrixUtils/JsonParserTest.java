@@ -15,9 +15,9 @@ public class JsonParserTest {
 
 	@Test
 	public void testParseJson() throws JsonSyntaxException, JsonIOException, FileNotFoundException {
-		JsonParser parse = new JsonParser("ex.json");
-		DistanceMatrix d = parse.parseJson();
-		Assert.assertNotNull(d);
+		JsonParser parse = new JsonParser();
+		DistanceMatrix d = parse.parseJsonFromFile("ex.json");
+		assertNotNull(d);
 		assertEquals(2,d.destination_addresses.length);
 		assertEquals(2,d.origin_addresses.length);
 		assertEquals(2,d.rows.get(0).elements.size());

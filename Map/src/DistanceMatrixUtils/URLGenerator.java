@@ -2,7 +2,11 @@ package DistanceMatrixUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Stores data to generate a URL string to request data from the DistanceMatrix API
+ * @author Zach
+ *
+ */
 public class URLGenerator {
 
 	List<String> origins;

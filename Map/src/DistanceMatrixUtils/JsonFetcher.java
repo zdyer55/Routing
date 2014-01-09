@@ -67,6 +67,7 @@ public class JsonFetcher
 	
 	public static String fetchJson(String urlString) throws MalformedURLException, IOException
 	{
+		System.out.println(urlString);
 		String jsonText=null;
 		InputStream is = new URL(urlString).openStream();
 		    try {

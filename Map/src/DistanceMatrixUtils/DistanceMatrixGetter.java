@@ -5,6 +5,12 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Provides methods for retrieving distance matrix objects
+ * using the Google Distance Matrix API
+ * @author Zach
+ *
+ */
 public class DistanceMatrixGetter {
 	public DistanceMatrix getDistanceMatrix(List<String> origins, List<String> destinations) 
 	{
@@ -25,7 +31,8 @@ public class DistanceMatrixGetter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DistanceMatrix d = JsonParser.parseJsonFromString(json);
+		JsonParser parser = new JsonParser();
+		DistanceMatrix d = parser.parseJsonFromString(json);
 		return d;
 	}
 }
