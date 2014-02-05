@@ -28,6 +28,7 @@ public class App {
    
     public static void main(String[] args) {
         try {
+        	
             final ResourceConfig resourceConfig = new ResourceConfig(RouteResource.class);
             
            Map<String, Object> map = new HashMap<String,Object>();
@@ -39,8 +40,8 @@ public class App {
           //  );
             CrossDomainFilter filter = new CrossDomainFilter();
             
-          //  map.put("com.sun.jersey.spi.container.ContainerResponseFilters",filter.getClass());
-            //map.put("com.sun.jersey.api.container.filter.LoggingFilter",filter.getClass());
+            map.put("com.sun.jersey.spi.container.ContainerResponseFilters",filter.getClass());
+            map.put("com.sun.jersey.api.container.filter.LoggingFilter",filter.getClass());
             resourceConfig.addProperties(map);
             System.out.println(resourceConfig.getProperties());
             final HttpServer server = GrizzlyHttpServerFactory.createHttpServer(BASE_URI, resourceConfig);
